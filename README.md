@@ -1,2 +1,2 @@
 # my_blog
-express + mongodb
+express + mongodb搭建博客
