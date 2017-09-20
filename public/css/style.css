@@ -10,8 +10,8 @@ a:hover {
 }
 
 .button {
-    background-color: #4fc08d;
-    color: #fff;
+    background-color: #4fc08d !important;
+    color: #fff !important;
 }
 
 .avatar {
@@ -46,7 +46,7 @@ a:hover {
 
 .nav-setting .ui.dropdown.button {
     padding: 10px 10px 0 10px;
-    background-color: #fff;
+    background-color: #fff !important;
 }
 
 .nav-setting .icon.bars {
@@ -57,7 +57,7 @@ a:hover {
 /*----------- post-content -----------*/
 
 .post-content h3 a {
-    color: #4fc08d;
+    color: #4fc08d !important;
 }
 
 .post-content .tag {

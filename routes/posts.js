@@ -5,7 +5,7 @@ var checkLogin = require('../middlewares/check').checkLogin;
 
 /*GET /posts 用户文章页  GET /posts?author=xx*/
 router.get('/', function(req, res, next) {
-    res.send(req.flash());
+    res.render('posts');
 });
 
 /*POST /posts 发表文章*/
@@ -19,17 +19,17 @@ router.get('/create', checkLogin, function(req, res, next) {
 });
 
 /*GET /posts/:postId 单独一篇文章页*/
-router.get(':postId', function(req, res, next) {
+router.get('/:postId', function(req, res, next) {
     res.send(req.flash());
 });
 
 /*GET /posts/:postId/edit 更新文章页*/
-router.get('/', checkLogin, function(req, res, next) {
+router.get('/:postId/edit', checkLogin, function(req, res, next) {
     res.send(req.flash());
 });
 
 /*POST /posts/:postId/edit 更新文章*/
-router.post('/', checkLogin, function(req, res, next) {
+router.post('/:postId/edit', checkLogin, function(req, res, next) {
     res.send(req.flash());
 });
 
@@ -44,7 +44,7 @@ router.post('/:postId/comment', checkLogin, function(req, res, next) {
 });
 
 /*GET /posts/:postId/comment/:commentId/remove 删除留言*/
-router.get(':postId/comment/:commentId/remove', checkLogin, function(req, res, next) {
+router.get('/:postId/comment/:commentId/remove', checkLogin, function(req, res, next) {
     res.send(req.flash());
 });
 

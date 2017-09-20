@@ -31,6 +31,11 @@ app.use(session({
 
 app.use(flash());                       // flash中间件，用于显示通知
 
+app.use(require('express-formidable')({             //处理表单及文件上传的中间件
+    uploadDir: path.join(__dirname, 'public/img'),  //上传文件目录
+    keepExtensions: true                            //保留后缀
+}))
+
 app.locals.blog = {                     // 设置模版全局变量
     title: pkg.name,
     description: pkg.description
@@ -46,5 +51,5 @@ app.use(function(req, res, next) {      // 添加模版必需的三个变量
 routes(app);                            // 路由
 
 app.listen(config.port, function() {
-    console.log(pkg.name + 'listening on port' + config.port);
+    console.log(pkg.name + ' listening on port ' + config.port);
 })
