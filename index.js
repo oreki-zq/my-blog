@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));    // 设置静态文�
 
 // session中间件
 app.use(session({
-    name: config.session.key,           // 设置cookie中保存session ide 的字段
+    name: config.session.key,           // 设置cookie中保存session id 的字段
     secret: config.session.secret,      // 设置secret 计算hash值放在cookie中，使产生的signedCookie防篡改
     resave: true,                       // 强制更新 session
     saveUninitialized: false,           // 强制创建一个session， 即使用户未登陆
