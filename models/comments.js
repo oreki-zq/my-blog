@@ -28,7 +28,7 @@ module.exports = {
             .find({ postId: postId })
             .populate({ path: 'author', model: 'User' })
             .sort({ _id: 1 })
-            .addCreateAt()
+            .addCreatedAt()
             .contentToHtml()
             .exec();
     },

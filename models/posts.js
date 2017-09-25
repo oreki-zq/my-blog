@@ -85,6 +85,12 @@ module.exports = {
     },
 
     delPostById: function delPostById(postId, author) {                 // 通过用户id 和文章id 删除一篇文章
-        return Post.remove({ author: author, _id: postId }).exec();
+        return Post.remove({ author: author, _id: postId })
+            .exec()
+            .then(function(res) {
+                if(res.result.ok && res.result.n > 0) {
+                    return CommentModel.delCommentsByPostId(postId);
+                }
+            })
     }
 };
