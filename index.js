@@ -6,6 +6,8 @@ var flash = require('connect-flash');
 var config = require('config-lite')(__dirname);
 var routes = require('./routes');
 var pkg = require('./package');
+var winston = require('winston');
+var expressWinston = require('express-winston');
 
 var app = express();
 
@@ -48,7 +50,29 @@ app.use(function(req, res, next) {      // 添加模版必需的三个变量
     next();
 });
 
+app.use(expressWinston.logger({         // 正常请求的日志
+    transports: [
+        new (winston.transports.Console)({
+            json: true,
+            colorize: true
+        }),
+        new winston.transports.File({
+            filename: 'logs/success.log'
+        })
+    ]
+}));
 routes(app);                            // 路由
+app.use(expressWinston.errorLogger({    // 错误请求的日志
+    tranports: [
+        new winston.transports.Console({
+            json: true,
+            colorize: true
+        }),
+        new winston.transports.File({
+            filename: 'logs/error.log'
+        })
+    ]
+}));
 
 app.use(function(err, req, res, next) { //error page
     res.render('error', {
