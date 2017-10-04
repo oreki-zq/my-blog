@@ -6,6 +6,7 @@ node版本：nvm alias default v6.9.1，npm 3.10.8</br>
 安装nrm：npm i nrm -g，切换cnpm源</br>
 安装mongodb：https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/   (sudo chmod 777 /data/db)</br>
 
+项目依赖模块：
 express: web 框架</br>
 express-session: session 中间件</br>
 connect-mongo: 将 session 存储于 mongodb，结合 express-session 使用</br>
